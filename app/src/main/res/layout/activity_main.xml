@@ -2,17 +2,35 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.gordon.materialdesign.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"/>
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:fitsSystemWindows="true"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Dark"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        <!-- 设置弹窗的样式(就是点击toolbar最右边三点的图标)，上面的那种是黑底白字，下面这种是白底黑字-->
+        <!--app:popupTheme="@style/ThemeOverlay.AppCompat.Light"-->
+
+        <!-- android 5.0以后可以给一个view单独设置theme且可以向下兼容，
+            如，主题是白色但是我想要一个黑色的toolbar就可以使用上面这句来设置。
+            相反就可以用下面这句来设置。这里注意返回图标的颜色变化，当设置为黑色是返回图标是白色，相反是深色-->
+        <!--app:theme="@style/ThemeOverlay.AppCompat.ActionBar"-->
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:text="你好啊，toolbar"/>
+
+    </android.support.v7.widget.Toolbar>
+
 </RelativeLayout>
