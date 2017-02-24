@@ -1,4 +1,4 @@
-package com.gordon.materialdesign;
+package com.gordon.materialdesign.toolbar;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -10,8 +10,10 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import com.gordon.materialdesign.R;
 
-public class MainActivity extends AppCompatActivity {
+
+public class ToolBarActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
 
@@ -19,9 +21,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
+//        requestWindowFeature(Window.FEATURE_NO_TITLE);// 继承Activity调用的方法
+        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);// 继承AppCompatActivity调用的方法
 
         setContentView(R.layout.activity_main);
+//        setContentView(R.layout.toolbar_layout);
+
         //透明状态栏
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
 //        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
@@ -39,7 +44,8 @@ public class MainActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         // 将actionBar替换成toolbar
         setSupportActionBar(toolbar);
-
+        // 设置默认标题不显示
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
         // 给左上角图标的左边加上一个返回的图标(系统默认图片) 。对应ActionBar.DISPLAY_HOME_AS_UP
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -70,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
                       //   Log.d("TAG","click back icon");
                       //}
 
-        //            Toast.makeText(MainActivity.this,"click back icon",Toast.LENGTH_LONG).show();
+        //            Toast.makeText(ToolBarActivity.this,"click back icon",Toast.LENGTH_LONG).show();
         //        }
         //    });
 
@@ -98,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
             }
             if (!TextUtils.isEmpty(msg)) {
-                Toast.makeText(MainActivity.this,msg,Toast.LENGTH_LONG).show();
+                Toast.makeText(ToolBarActivity.this,msg,Toast.LENGTH_LONG).show();
             }
             return true;
         }
@@ -108,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
-            Toast.makeText(MainActivity.this,"onItemSelected click back icon",Toast.LENGTH_LONG).show();
+            Toast.makeText(ToolBarActivity.this,"onItemSelected click back icon",Toast.LENGTH_LONG).show();
             finish();
             return true;
         }

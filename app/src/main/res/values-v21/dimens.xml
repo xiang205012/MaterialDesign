@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 5.0以上用此高度 -->
+    <dimen name="toolbarHeight">48dp</dimen>
+
+
+</resources>
